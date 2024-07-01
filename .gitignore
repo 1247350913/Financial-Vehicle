@@ -1,0 +1,13 @@
+# Client
+/client/node_modules
+/client/build
+
+#Database
+/database/__pycache__/
+
+# Server
+/server/.venv_fv_3.6
+/server/__pycache__/
+
+# Environment variables
+.env
