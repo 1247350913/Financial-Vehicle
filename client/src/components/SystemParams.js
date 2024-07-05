@@ -1,37 +1,49 @@
-import React, { useRef }  from 'react';
-import Parameter from './Parameter'
-import apiService from '../apiService';
+import React, { useState }  from 'react';
+import Account from './Account';
+import Asset from './Asset';
+import Expense from './Expense';
+import Income from './Income';
 
 const SystemParams = () => {
 
-  const inputRefs = useRef([]);
+  const [addAccount, setAddAccount] = useState(false);
+  const [addAsset, setAddAsset] = useState(false);
+  const [addExpense, setAddExpense] = useState(false);
+  const [addIncome, setAddIncome] = useState(false);
 
-  const handleSave = async () => {
-    const inputValues = inputRefs.current.map(ref => ref.value);
-    console.log('Current input values:', inputValues);
-    await apiService.put('/save').catch(err => console.log('ERROR:', err))
+  const handleAddAccount = () => {
+    setAddAccount(true);
+  };
 
+  const handleAddAsset = () => {
+    setAddAsset(true);
+  };
+
+  const handleAddExpense = () => {
+    setAddExpense(true);
+  };
+
+  const handleAddIncome = () => {
+    setAddIncome(true);
   };
 
   return (
     <div>
       <h1>System Parameters</h1>
       <p>Accounts</p>
-
-      {[...Array(12)].map((_, index) => (
-        <Parameter key={index} inputRef={inputRefs.current[index]} />
-      ))}
-
+      <button onClick={handleAddAccount}>Add Account</button>
+      {addAccount && <Account/>}
       <p>Assets</p>
-
+      <button onClick={handleAddAsset}>Add Asset</button>
+      {addAsset && <Asset/>}
       <p>Expenses</p>
-
+      <button onClick={handleAddExpense}>Add Expense</button>
+      {addExpense && <Expense/>}
       <p>Incomes</p>
-
-      <button onClick={handleSave}>Save</button>
+      <button onClick={handleAddIncome}>Add Income</button>
+      {addIncome && <Income/>}
     </div>
-  )
-
-}
+  );
+};
 
 export default SystemParams;

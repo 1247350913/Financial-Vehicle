@@ -1,14 +1,16 @@
-import React, { useRef } from 'react';
+import React from 'react';
 
-const Parameter = ({ inputRef }) => {
-
+const Parameter = ({ label, value, onChange }) => {
   return (
     <div>
-      <label>Account Name: </label>
-        <input type="text" ref={ref => inputRef = ref} />
+      <label>{label}: </label>
+      <input
+        type="text"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+      />
     </div>
-  )
-
-}
+  );
+};
 
 export default Parameter;
