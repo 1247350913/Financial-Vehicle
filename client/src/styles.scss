@@ -1,0 +1,60 @@
+// ========================================================================================
+// Global =================================================================================
+// ========================================================================================
+
+
+
+
+
+
+
+// ========================================================================================
+// Main ===================================================================================
+// ========================================================================================
+
+.mainLayout {
+  display: flex;
+  height: calc(100% - 3em); /* Subtract title bar height from 100% */
+}
+
+.sidebar {
+  background-color: #444;
+  color: #fff;
+  width: 20%; /* 1/5th of the screen width */
+  height: 100%;
+  box-sizing: border-box;
+  padding: 1em;
+}
+
+.mainContent {
+  background-color: #f0f0f0;
+  color: #000;
+  width: 80%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 1em;
+}
+
+
+
+// ========================================================================================
+// TitleBar ===============================================================================
+// ========================================================================================
+
+$bg-color: rgb(64, 62, 62);
+$text-color: #fff;
+
+.titlebar {
+  background-color: $bg-color;
+  color: $text-color;
+  text-align: center; // Center the text horizontally
+  display: flex; // Use flexbox for vertical centering
+  justify-content: center; // Center the text horizontally within the flex container
+  align-items: center; // Center the text vertically within the flex container
+  height: 3em; // Height of container to be 3x the text
+  padding: 0.5em 0; // Padding for
+  width: 100%; // Make the title bar span the entire width of the device
+  box-sizing: border-box; // Include padding/borders in the total width and height
+}
+
+

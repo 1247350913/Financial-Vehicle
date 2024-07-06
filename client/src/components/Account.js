@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import apiService from '../apiService';
 import Parameter from './Parameter';
 
@@ -12,6 +12,11 @@ const Account = () => {
   };
 
   const handleEdit = async () => {
+    await apiService.put('/save', paramVals).catch(err => console.log('ERROR:', err));
+  };
+
+  const handleDelete = async () => {
+    console.log('Current input values:', paramVals);
     await apiService.put('/save', paramVals).catch(err => console.log('ERROR:', err));
   };
 
@@ -34,6 +39,7 @@ const Account = () => {
       )}
       <button onClick={handleEdit}>Edit</button>
       <button onClick={handleSave}>Save</button>
+      <button onClick={handleDelete}>Delete</button>
     </div>
   );
 };

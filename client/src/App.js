@@ -1,11 +1,12 @@
-import TitleBar from './components/TitleBar';
-import SystemParams from './components/SystemParams';
+import {Routes, Route, useNavigate } from 'react-router-dom';
+import HomePage from './components/HomePage';
 
 function App() {
   return (
     <div>
-      <TitleBar/>
-      <SystemParams/>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
     </div>
   )
 }

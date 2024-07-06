@@ -15,6 +15,11 @@ const Asset = () => {
     await apiService.put('/save', paramVals).catch(err => console.log('ERROR:', err));
   };
 
+  const handleDelete = async () => {
+    console.log('Current input values:', paramVals);
+    await apiService.put('/save', paramVals).catch(err => console.log('ERROR:', err));
+  };
+
   const handleInputChange = (i, val) => {
     const newVals = [...paramVals];
     newVals[i] = val;
@@ -34,6 +39,7 @@ const Asset = () => {
       )}
       <button onClick={handleEdit}>Edit</button>
       <button onClick={handleSave}>Save</button>
+      <button onClick={handleDelete}>Delete</button>
     </div>
   );
 };
