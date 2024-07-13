@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 
 # Function to establish MongoDB connection
-def get_db_connection():
+def get_db():
+    db_name = "fv"
     client = MongoClient('mongodb://localhost:27017/')
-    db = client.fv
-    return db
+    return (client[db_name],client,db_name)
