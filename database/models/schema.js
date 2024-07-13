@@ -20,3 +20,11 @@
 
 // }
 
+// Collection: saves
+// {
+// _id: auto
+// name: save_name
+// assets: [assets]
+// accounts: [accounts]
+
+// }
