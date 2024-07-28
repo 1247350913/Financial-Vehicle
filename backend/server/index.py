@@ -2,12 +2,12 @@ from flask import Flask, send_from_directory, jsonify
 from database.index import get_db_connection
 from flask_cors import CORS
 
+# create the app server and serve the public static client files
 app = Flask(__name__, static_folder="../client/build", static_url_path="/")
 CORS(app)
 
 # Database Connection
 db = get_db_connection
-
 
 # Routes
 
@@ -20,9 +20,9 @@ def serve_static(path):
         return send_from_directory(app.static_folder, 'index.html')
 
 
-@app.route('/save', methods=['PUT'])
-def save_params():
-    data = {'message': 'Hello from Flask!'}
+@app.route('/saves', methods=['GET'])
+def get_saves():
+    data = ['message', 'Hello from Flask!']
     return jsonify(data)
 
 if __name__ == '__main__':
