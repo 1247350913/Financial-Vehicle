@@ -22,8 +22,12 @@ def serve_static(path):
 
 @app.route('/saves', methods=['GET'])
 def get_saves():
-    data = ['message', 'Hello from Flask!']
-    return jsonify(data)
+    saves = [{
+        'id': 1,
+        'name': 'Sample Save',
+        'assets': []
+    }]
+    return jsonify(saves)
 
 if __name__ == '__main__':
     app.run(debug=True)
